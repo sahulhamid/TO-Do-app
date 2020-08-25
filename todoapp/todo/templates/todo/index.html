@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h1>To Do List</h1>
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form.title }}
+    <input type="submit">
+</form>
+    {% for todo in todos %}
+    <a href="{% url 'update' todo.id%}">update</a>
+    <a href="{% url 'delete' todo.id%}">delete</a>
+        <h3>{{ todo }}</h3>
+    {% endfor %}
+</body>
+</html>
